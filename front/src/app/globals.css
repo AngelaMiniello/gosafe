@@ -10,7 +10,6 @@
   }
 }
 
-/* ===== BOTÓN FLOTANTE ===== */
 .chat-float-btn {
   position: fixed;
   bottom: 25px;
@@ -31,7 +30,6 @@
   animation: pulse 2s infinite;
 }
 
-/* 🔴 NOTIFICACIÓN */
 .chat-dot {
   position: absolute;
   top: 6px;
@@ -43,7 +41,6 @@
   border: 2px solid white;
 }
 
-/* ✨ ANIMACIÓN */
 @keyframes pulse {
   0% {
     box-shadow: 0 0 0 0 rgba(24,61,47, 0.6);
@@ -56,7 +53,6 @@
   }
 }
 
-/* ===== CONTENEDOR ===== */
 .chat-container {
   position: fixed;
   bottom: 100px;
@@ -72,7 +68,6 @@
   box-shadow: 0 15px 40px rgba(0,0,0,0.3);
 }
 
-/* ===== HEADER ===== */
 .chat-header {
   background: linear-gradient(135deg, #183D2F, #14532d);
   color: white;
@@ -81,7 +76,6 @@
   font-size: 15px;
 }
 
-/* ===== MENSAJES ===== */
 .chat-messages {
   flex: 1;
   padding: 12px;
@@ -91,7 +85,6 @@
   flex-direction: column;
 }
 
-/* BURBUJAS */
 .msg-user {
   background: #F2B705;
   color: black;
@@ -113,7 +106,6 @@
   max-width: 75%;
 }
 
-/* ===== INPUT ===== */
 .chat-input {
   display: flex;
   border-top: 1px solid #eee;
@@ -128,7 +120,6 @@
   font-size: 14px;
 }
 
-/* BOTÓN ENVIAR */
 .chat-input button {
   background: #183D2F;
   color: white;
@@ -150,7 +141,6 @@
   border: 1px solid #ddd;
 }
 
-/* LADO IZQUIERDO */
 .admin-users {
   width: 30%;
   background: #183D2F;
@@ -169,21 +159,18 @@
   color: black;
 }
 
-/* LADO DERECHO */
 .admin-chat-box {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* HEADER */
 .admin-chat-header {
   background: #183D2F;
   color: white;
   padding: 10px;
 }
 
-/* MENSAJES */
 .admin-chat-messages {
   flex: 1;
   padding: 10px;
@@ -191,13 +178,11 @@
   overflow-y: auto;
 }
 
-/* INPUT ABAJO (IMPORTANTE) */
 .admin-chat-input {
   display: flex;
   border-top: 1px solid #ddd;
 }
 
-/* INPUT */
 .admin-chat-input input {
   flex: 1;
   padding: 10px;
@@ -205,7 +190,6 @@
   outline: none;
 }
 
-/* BOTÓN */
 .admin-chat-input button {
   background: #183D2F;
   color: white;
@@ -213,7 +197,6 @@
   padding: 10px 15px;
 }
 
-/* MENSAJES */
 .msg-admin {
   background: #F2B705;
   padding: 8px 12px;

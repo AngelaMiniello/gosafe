@@ -42,8 +42,7 @@ export default function RootLayout({
             <main className="w-full flex-1">{children}</main>
             <Footer />
           </div>
-
-          {/* 💬 CHAT */}
+          
           <ChatWrapper />
 
         </AuthProvider>
