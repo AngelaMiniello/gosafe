@@ -2,17 +2,17 @@ import { Compass, Users, Calendar, MapPin, Heart, Leaf } from 'lucide-react'; //
 
 const ReservationSteps = () => {
   return (
-    <section className="relative bg-white p-12 md:p-20 flex flex-col md:flex-row items-center gap-4 overflow-hidden ">
-      <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center gap-4">
-      {/* --- DECORACIONES DE LAS ESQUINAS (Las que hicimos antes) --- */}
-      <div className="absolute top-0 left-0 w-16 h-16 bg-[#D6755B] rounded-br-3xl -translate-x-4 -translate-y-4" />
-      <div className="absolute bottom-0 right-0 w-16 h-16 bg-[#D6755B] rounded-tl-3xl translate-x-4 translate-y-4" />
+    <section className="relative bg-white px-4 sm:px-6 md:px-10 lg:px-20 py-10 sm:py-12 md:py-16 lg:py-20 flex flex-col md:flex-row items-center gap-4 -mt-px">
+      <div className="max-w-[1400px] w-full mx-auto flex flex-col md:flex-row items-center gap-4">
+        {/* --- DECORACIONES DE LAS ESQUINAS (Las que hicimos antes) --- */}
+        <div className="absolute top-0 left-0 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-[#D6755B] rounded-br-2xl md:rounded-br-3xl -translate-x-2 -translate-y-2 sm:-translate-x-3 sm:-translate-y-3 md:-translate-x-4 md:-translate-y-4" />
+        <div className="absolute bottom-0 right-0 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-[#D6755B] rounded-tl-2xl md:rounded-tl-3xl translate-x-2 translate-y-2 sm:translate-x-3 sm:translate-y-3 md:translate-x-4 md:translate-y-4" />
 
       {/* --- PARTE IZQUIERDA: TEXTO Y PASOS --- */}
-      <div className="flex-1 space-y-8">
+      <div className="flex-1 space-y-8 p-2">
         <div>
           <p className="text-gray-500 font-medium mb-2">Fácil y Rápido</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
+          <h2 className="text-4xl md:text-5xl text-xl font-bold text-gray-800 leading-tight">
             Reserva Tu Próxima <br /> Aventura En 3 Simples Pasos
           </h2>
         </div>
@@ -54,11 +54,11 @@ const ReservationSteps = () => {
       </div>
 
       {/* --- PARTE DERECHA: CARD DE VISTA PREVIA --- */}
-      <div className="flex-1 flex justify-center relative">
+      <div className="flex-1 flex justify-center relative px-4 sm:px-0">
         {/* Glow de fondo (el circulo azulado suave) */}
         <div className="absolute inset-0 bg-blue-100 blur-[100px] rounded-full opacity-50" />
         
-        <div className="relative bg-white rounded-[2rem] shadow-2xl p-5 max-w-sm w-full z-10 border border-gray-100">
+        <div className="relative bg-white rounded-[2rem] shadow-2xl p-4 sm:p-5 max-w-[320px] sm:max-w-sm w-full z-10 border border-gray-100">
           <img 
             src="https://images.unsplash.com/photo-1522163182402-834f871fd851?auto=format&fit=crop&q=80&w=600" 
             alt="Escalada"

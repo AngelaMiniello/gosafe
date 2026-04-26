@@ -28,11 +28,11 @@ export default function DashboardSidebar({
   let activeAssigned = false;
 
   return (
-    <aside className="flex min-h-screen w-65 flex-col justify-between bg-[#1a3d2b] p-6 text-white">
+    <aside className="flex min-h-screen w-[76px] sm:w-[80px] md:w-[96px] lg:w-[260px] flex-col justify-between bg-[#1a3d2b] p-3 sm:p-5 lg:p-6 text-white">
       <div>
-        <div className="mb-10">
-          <h2 className="text-2xl font-bold">{title}</h2>
-          <p className="mt-1 text-sm text-white/70">{subtitle}</p>
+        <div className="mb-6 sm:mb-8 lg:mb-10 hidden sm:block">
+          <h2 className="text-xl sm:text-2xl font-bold">{title}</h2>
+          <p className="mt-1 text-xs sm:text-sm text-white/70">{subtitle}</p>
         </div>
 
         <nav className="flex flex-col gap-2">
@@ -51,9 +51,9 @@ export default function DashboardSidebar({
                   key={item.name}
                   className="cursor-not-allowed rounded-2xl px-4 py-3 text-white/40"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-center sm:justify-start gap-0 sm:gap-3">
                     <Icon size={18} />
-                    <span>{item.name}</span>
+                    <span className="hidden sm:inline">{item.name}</span>
                   </div>
                 </div>
               );
@@ -63,12 +63,12 @@ export default function DashboardSidebar({
               <Link
                 key={item.name}
                 href={item.href}
-                className={`flex items-center gap-3 rounded-2xl px-4 py-3 transition ${
+                className={`flex items-center justify-center sm:justify-start gap-0 sm:gap-3 rounded-2xl px-2 sm:px-4 py-3 transition ${
                   isActive ? "bg-white/20" : "hover:bg-white/10"
                 }`}
               >
                 <Icon size={18} />
-                <span>{item.name}</span>
+                <span className="hidden sm:inline">{item.name}</span>
               </Link>
             );
           })}
@@ -77,10 +77,10 @@ export default function DashboardSidebar({
 
       <button
         onClick={onLogout}
-        className="flex items-center gap-3 rounded-2xl px-4 py-3 text-left transition hover:bg-[#df6d51]"
+        className="flex items-center justify-center sm:justify-start gap-0 sm:gap-3 rounded-2xl px-2 sm:px-4 py-3 text-left transition hover:bg-[#df6d51]"
       >
         <LogOut size={18} />
-        <span>Cerrar sesión</span>
+        <span className="hidden sm:inline">Cerrar sesión</span>
       </button>
     </aside>
   );

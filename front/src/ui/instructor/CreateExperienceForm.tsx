@@ -235,54 +235,54 @@ const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
   const labelClassName = "text-sm font-semibold text-[#1a3d2b]";
 
   return (
-      <section className="min-h-screen bg-gray-50 w-full flex ">
-          <InstructorSidebar/>
-      <div className="w-full mx-auto px-10 py-10  flex-1">
-        <div className="mb-6 rounded-3xl border border-[#e8e1d4] bg-white p-6 shadow-sm sm:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8c8a84]">
-            Panel de instructor
-          </p>
-          <h1 className="mt-2 text-3xl font-bold text-[#1a3d2b] sm:text-4xl">Crear experiencia</h1>
-          <p className="mt-2 max-w-2xl text-sm text-[#5e625d] sm:text-base">
-            Completa los datos de tu experiencia para publicarla por categoria y que sea visible en el home.
-          </p>
-        </div>
+      <section className="min-h-screen bg-gray-50 w-full flex">
+        <InstructorSidebar/>
+        <div className="w-full mx-auto flex-1 px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-10 lg:py-10">
+          <div className="mb-6 rounded-3xl border border-[#e8e1d4] bg-white p-5 shadow-sm sm:p-7 md:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8c8a84]">
+              Panel de instructor
+            </p>
+            <h1 className="mt-2 text-2xl font-bold text-[#1a3d2b] sm:text-3xl md:text-4xl">Crear experiencia</h1>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-[#5e625d] sm:text-base">
+              Completa los datos de tu experiencia para publicarla por categoria y que sea visible en el home.
+            </p>
+          </div>
 
-        <form
-          onSubmit={handleSubmit}
-          className="rounded-3xl border border-[#e8e1d4] bg-white p-6 shadow-sm sm:p-8"
-        >
-          <div className="grid grid-cols-1 gap-8">
-            <section className="rounded-2xl border border-[#ece7df] bg-[#fcfaf6] p-5 sm:p-6">
-              <h2 className="text-lg font-bold text-[#1a3d2b]">Informacion principal</h2>
-              <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-                <div className="md:col-span-2">
-                  <label className={labelClassName} htmlFor="title">
-                    Titulo de la experiencia
-                  </label>
-                  <input
-                    id="title"
-                    name="title"
-                    type="text"
-                    value={values.title}
-                    onChange={handleChange}
-                    className={fieldClassName}
-                    required
-                  />
-                </div>
+          <form
+            onSubmit={handleSubmit}
+            className="rounded-3xl border border-[#e8e1d4] bg-white p-4 shadow-sm sm:p-6 md:p-8"
+          >
+            <div className="grid grid-cols-1 gap-8">
+              <section className="rounded-2xl border border-[#ece7df] bg-[#fcfaf6] p-4 sm:p-5 md:p-6">
+                <h2 className="text-lg font-bold text-[#1a3d2b]">Informacion principal</h2>
+                <div className="mt-4 grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
+                  <div className="md:col-span-2">
+                    <label className={labelClassName} htmlFor="title">
+                      Titulo de la experiencia
+                    </label>
+                    <input
+                      id="title"
+                      name="title"
+                      type="text"
+                      value={values.title}
+                      onChange={handleChange}
+                      className={fieldClassName}
+                      required
+                    />
+                  </div>
 
-                <div>
-                  <label className={labelClassName} htmlFor="category">
-                    Categoria
-                  </label>
-                  <select
-                    id="category"
-                    name="category"
-                    value={values.category}
-                    onChange={handleChange}
-                    className={fieldClassName}
-                    required
-                  >
+                  <div>
+                    <label className={labelClassName} htmlFor="category">
+                      Categoria
+                    </label>
+                    <select
+                      id="category"
+                      name="category"
+                      value={values.category}
+                      onChange={handleChange}
+                      className={fieldClassName}
+                      required
+                    >
                     <option value="" disabled>
                       Selecciona una categoria
                     </option>
@@ -291,34 +291,34 @@ const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
                         {category.name}
                       </option>
                     ))}
-                  </select>
-                </div>
+                    </select>
+                  </div>
 
-                <div>
-                  <label className={labelClassName} htmlFor="difficulty">
-                    Dificultad
-                  </label>
-                  <select
+                  <div>
+                    <label className={labelClassName} htmlFor="difficulty">
+                      Dificultad
+                    </label>
+                    <select
                     id="difficulty"
                     name="difficulty"
                     value={values.difficulty}
                     onChange={handleChange}
                     className={fieldClassName}
                     required
-                  >
+                    >
                     <option value="">Selecciona una dificultad</option>
                     <option value="Principiante">Principiante</option>
                     <option value="Intermedio">Intermedio</option>
                     <option value="Avanzado">Avanzado</option>
                     <option value="Experto">Experto</option>
-                  </select>
-                </div>
+                    </select>
+                  </div>
 
-                <div>
-                  <label className={labelClassName} htmlFor="capacity">
+                  <div>
+                    <label className={labelClassName} htmlFor="capacity">
                     Capacidad maxima
-                  </label>
-                  <input
+                    </label>
+                    <input
                     id="capacity"
                     name="capacity"
                     type="number"
@@ -328,14 +328,14 @@ const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
                     onChange={handleChange}
                     className={fieldClassName}
                     required
-                  />
-                </div>
+                    />
+                  </div>
 
-                <div>
-                  <label className={labelClassName} htmlFor="price">
+                  <div>
+                    <label className={labelClassName} htmlFor="price">
                     Precio
-                  </label>
-                  <input
+                    </label>
+                    <input
                     id="price"
                     name="price"
                     type="number"
@@ -345,14 +345,14 @@ const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
                     onChange={handleChange}
                     className={fieldClassName}
                     required
-                  />
+                    />
+                  </div>
                 </div>
-              </div>
-            </section>
+              </section>
 
-            <section className="rounded-2xl border border-[#ece7df] bg-[#fcfaf6] p-5 sm:p-6">
-              <h2 className="text-lg font-bold text-[#1a3d2b]">Ubicacion</h2>
-              <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3">
+              <section className="rounded-2xl border border-[#ece7df] bg-[#fcfaf6] p-5 sm:p-6">
+                <h2 className="text-lg font-bold text-[#1a3d2b]">Ubicacion</h2>
+                <div className="mt-4 grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-3">
                 <div>
                   <label className={labelClassName} htmlFor="country">
                     Pais
@@ -367,7 +367,7 @@ const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
                     className={fieldClassName}
                     required
                   />
-                </div>
+                  </div>
 
                 <div>
                   <label className={labelClassName} htmlFor="city">
@@ -400,12 +400,12 @@ const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
                     required
                   />
                 </div>
-              </div>
-            </section>
+                </div>
+              </section>
 
-            <section className="rounded-2xl border border-[#ece7df] bg-[#fcfaf6] p-5 sm:p-6">
-              <h2 className="text-lg font-bold text-[#1a3d2b]">Fechas y edad</h2>
-              <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+              <section className="rounded-2xl border border-[#ece7df] bg-[#fcfaf6] p-5 sm:p-6">
+                <h2 className="text-lg font-bold text-[#1a3d2b]">Fechas y edad</h2>
+                <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div>
                   <label className={labelClassName} htmlFor="startDateTime">
                     Inicio (dia y hora)
@@ -436,7 +436,7 @@ const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
                   />
                 </div>
 
-                <div className="md:col-span-2 rounded-xl border border-dashed border-[#c8bfaf] bg-white px-4 py-3">
+                <div className="md:col-span-2 rounded-xl border border-dashed border-[#c8bfaf] bg-white px-3 py-3 sm:px-4">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8c8a84]">
                     Duracion estimada
                   </p>
@@ -499,43 +499,43 @@ const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
                 />
               </div>
 
-              <div className="mt-4">
-                <label className="mb-1 rounded-xl bg-[#e7b52c] px-6 py-3 font-semibold text-[#1f1f1f] transition hover:bg-[#d7a61e] disabled:cursor-not-allowed disabled:opacity-50" htmlFor="fileUpload">
+              <div className="mt-4 flex flex-col items-center sm:items-start">
+                <label className="mb-1 inline-flex rounded-xl bg-[#e7b52c] px-6 py-3 font-semibold text-[#1f1f1f] transition hover:bg-[#d7a61e] disabled:cursor-not-allowed disabled:opacity-50" htmlFor="fileUpload">
                   Seleccionar imágen
                 </label>
                 <input
-  type="file"
-  accept="image/*"
-  onChange={handleUpload}
-  className="hidden"
-  id="fileUpload"
-/>
-                <p className="mt-2 text-sm text-[#6d706c]">Imagenes seleccionadas: {images.length}</p>
+                type="file"
+                accept="image/*"
+                onChange={handleUpload}
+                className="hidden"
+                id="fileUpload"
+                 />
+                <p className="mt-2 text-sm text-[#6d706c] text-center sm:text-left">Imagenes seleccionadas: {images.length}</p>
                 {imageUrl && (
-  <img
-    src={imageUrl}
-    alt="preview"
-    className="w-40 h-28 object-cover rounded mt-2"
-  />
-)}
+                <img
+                src={imageUrl}
+                alt="preview"
+                className="mt-2 h-24 w-32 rounded object-cover sm:h-28 sm:w-40 mx-auto sm:mx-0"
+                />
+                )}
               </div>
             </section>
           </div>
 
         <div className="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
-            <button
+          <button
             type="button"
             onClick={resetForm}
             disabled={isSubmitting}
-            className="rounded-xl border border-[#1a3d2b] px-6 py-3 font-semibold text-[#1a3d2b] transition hover:bg-[#1a3d2b] hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
-            >
-            Limpiar formulario
-            </button>
+            className="rounded-xl border border-[#1a3d2b] px-2 md:px-6 py-3 font-semibold text-[#1a3d2b] transition hover:bg-[#1a3d2b] hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
+          >
+          Limpiar formulario
+          </button>
 
             <button
             type="submit"
             disabled={isSubmitting}
-            className="rounded-xl bg-[#e7b52c] px-6 py-3 font-semibold text-[#1f1f1f] transition hover:bg-[#d7a61e] disabled:cursor-not-allowed disabled:opacity-50"
+            className="rounded-xl bg-[#e7b52c] px-2 md:px-6 py-3 font-semibold text-[#1f1f1f] transition hover:bg-[#d7a61e] disabled:cursor-not-allowed disabled:opacity-50"
             >
             {isSubmitting ? "Guardando..." : "Guardar experiencia"}
             </button>

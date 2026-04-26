@@ -14,7 +14,7 @@ export default function CartView() {
           <p className="text-lg text-gray-600 mb-6">Tu carrito está vacío</p>
           <Link href="/">
             <button className="px-6 py-3 bg-[#2d5016] text-white rounded hover:bg-[#1f3a10]">
-              Continuar Comprando
+              Continuar comprando
             </button>
           </Link>
         </div>

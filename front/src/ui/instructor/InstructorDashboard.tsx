@@ -190,32 +190,32 @@ export default function InstructorDashboard() {
 
   return (
     <DashboardLayout sidebar={<InstructorSidebar />}>
-      <div className="mx-auto w-full flex-1 px-10 py-10">
-        <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+      <div className="mx-auto w-full flex-1 px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-10 lg:py-10">
+        <div className="mb-6 flex flex-col gap-4 md:mb-8 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="mb-2 text-sm uppercase tracking-wide text-gray-500">
+            <p className="mb-2 text-xs sm:text-sm uppercase tracking-wide text-gray-500">
               Panel del instructor
             </p>
-            <h1 className="text-3xl font-bold text-[#1a3d2b] md:text-4xl">
+            <h1 className="text-2xl font-bold text-[#1a3d2b] sm:text-3xl md:text-4xl">
               Gestiona tus experiencias
             </h1>
-            <p className="mt-2 text-gray-600">
+            <p className="mt-2 text-sm sm:text-base text-gray-600">
               Revisa tus reservas, actividades publicadas y el estado de tu perfil.
             </p>
           </div>
 
           <Link
             href="/instructor/dashboard/experiences/create"
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#e7b52c] px-5 py-3 font-semibold text-[#1a1a1a] shadow-sm transition hover:bg-[#dca91f] md:w-auto"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#e7b52c] px-4 py-3 text-sm font-semibold text-[#1a1a1a] shadow-sm transition hover:bg-[#dca91f] sm:text-base md:w-auto"
           >
             <Plus size={18} />
             Crear experiencia
           </Link>
         </div>
 
-        <div className="mb-8 flex flex-col gap-4 rounded-3xl border border-[#ece7df] bg-white p-5 shadow-sm md:flex-row md:items-center md:justify-between">
+        <div className="mb-6 flex flex-col gap-3 rounded-3xl border border-[#ece7df] bg-white p-4 shadow-sm sm:p-5 md:mb-8 md:flex-row md:items-center md:justify-between">
           <div>
-            <h2 className="text-xl font-semibold text-[#1a3d2b]">
+            <h2 className="text-lg font-semibold text-[#1a3d2b] sm:text-xl">
               Perfil de instructor
             </h2>
             <p className="mt-1 text-gray-600">
@@ -226,7 +226,7 @@ export default function InstructorDashboard() {
           </div>
         </div>
 
-        <div className="mb-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4 md:mb-10 md:gap-5">
           <DashboardStatCard
             icon={MapPin}
             title="Experiencias publicadas"
@@ -258,8 +258,8 @@ export default function InstructorDashboard() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">
-          <div className="mb-10 rounded-3xl border border-[#ece7df] bg-white p-6 shadow-sm xl:col-span-2">
-            <div className="mb-5 flex items-center justify-between">
+          <div className="mb-8 rounded-3xl border border-[#ece7df] bg-white p-4 shadow-sm sm:p-5 md:mb-10 md:p-6 xl:col-span-2">
+            <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm uppercase tracking-wide text-gray-500">
                   Actividades
@@ -288,25 +288,25 @@ export default function InstructorDashboard() {
                     key={exp.id}
                     className="flex flex-col gap-4 rounded-2xl border border-[#ece7df] p-4 md:flex-row md:items-center md:justify-between"
                   >
-                    <div>
+                    <div className="min-w-0">
                       <h3 className="text-lg font-semibold text-[#1a3d2b]">
                         {exp.title}
                       </h3>
                       <div className="mt-1 flex items-center gap-2 text-sm text-gray-500">
-                        <MapPin size={15} />
-                        <span>
+                        <MapPin size={15} className="mt-0.5 shrink-0"/>
+                        <span className="wrap-break-word">
                           {exp.location}, {exp.city}, {exp.country}
                         </span>
                       </div>
                       <div className="mt-1 flex items-center gap-2 text-sm text-gray-500">
-                        <CalendarDays size={15} />
+                        <CalendarDays size={15} className="shrink-0"/>
                         <span>{exp.date}</span>
                       </div>
                     </div>
 
                     <div className="flex flex-wrap items-center gap-3">
                       <span
-                        className={`rounded-full px-3 py-1 text-sm font-medium ${
+                        className={`rounded-full px-3 py-1 text-xs sm:text-sm font-medium ${
                           exp.status === false
                             ? "bg-red-100 text-red-700"
                             : "bg-[#e8f2ec] text-[#1a3d2b]"
@@ -324,11 +324,11 @@ export default function InstructorDashboard() {
             </div>
           </div>
 
-          <div className="mb-10 rounded-3xl border border-[#ece7df] bg-white p-6 shadow-sm">
-            <p className="mb-2 text-sm uppercase tracking-wide text-gray-500">
+          <div className="mb-8 rounded-3xl border border-[#ece7df] bg-white p-4 shadow-sm sm:p-5 md:mb-10 md:p-6">
+            <p className="text-sm uppercase tracking-wide text-gray-500">
               Agenda
             </p>
-            <h2 className="mb-5 text-2xl font-bold text-[#1a3d2b]">
+            <h2 className="mb-5 text-xl font-bold text-[#1a3d2b] sm:text-2xl">
               Próximas reservas
             </h2>
 
@@ -343,10 +343,10 @@ export default function InstructorDashboard() {
                     key={booking.id}
                     className="rounded-2xl border border-[#ece7df] p-4"
                   >
-                    <h3 className="font-semibold text-[#1a3d2b]">
+                    <h3 className="text-base font-semibold text-[#1a3d2b] sm:text-lg">
                       {booking.userName}
                     </h3>
-                    <p className="mt-1 text-sm text-gray-600">
+                    <p className="mt-1 text-sm text-gray-600 wrap-break-word">
                       {booking.experienceTitle}
                     </p>
                     <div className="mt-2 flex items-center gap-2 text-sm text-gray-500">
@@ -354,7 +354,7 @@ export default function InstructorDashboard() {
                       <span>{booking.date}</span>
                     </div>
                     <div className="mt-2 flex items-center gap-2 text-sm text-gray-500">
-                      <MapPin size={15} />
+                      <MapPin size={15} className="mt-0.5 shrink-0"/>
                       <span>{booking.location}</span>
                     </div>
                   </div>

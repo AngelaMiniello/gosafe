@@ -29,8 +29,8 @@ export default function TestimonialsHome() {
   ];
 
   return (
-    <section className="bg-white py-20 px-6 md:px-20 overflow-hidden">
-      <div className="max-w-300[1200px] mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-24">
+    <section className="bg-white py-20 px-6 md:px-20 overflow-hidden mt-2 mb-2 md:mt-6 md:mb-6">
+      <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row items-start md:items-center gap-16 md:gap-24">
         
         {/* --- LADO IZQUIERDO: TÍTULO Y DOTS --- */}
         <div className="flex-1 space-y-6">
@@ -38,8 +38,8 @@ export default function TestimonialsHome() {
             <p className="text-gray-400 font-medium uppercase tracking-widest text-sm mb-4">
               Testimonios
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
-              Comparte Tus <br /> Opiniones.
+            <h2 className="text-2xl md:text-5xl font-bold text-gray-800 leading-tight">
+              Comparte Tus <br className='hidden md:block'/> Opiniones.
             </h2>
           </div>
 
@@ -61,7 +61,7 @@ export default function TestimonialsHome() {
         {/* --- LADO DERECHO: TARJETA ANIMADA --- */}
         <div className="flex-1 relative w-full max-w-lg">
           {/* Contenedor con altura fija para evitar saltos de layout */}
-          <div className="relative h-62.5[250px] w-full">
+          <div className="relative h-80 w-full ">
             {testimonials.map((t, index) => (
               <div
                 key={t.id}
@@ -72,7 +72,7 @@ export default function TestimonialsHome() {
                 `}
               >
                 {/* Avatar flotante */}
-                <div className="absolute -top-8 left-10">
+                <div className="absolute -top-6 md:-top-8 left-8 md:left-10">
                   <div className="relative w-16 h-16 rounded-full border-4 border-white shadow-md overflow-hidden bg-gray-200">
                     <img
                       src={t.avatar}

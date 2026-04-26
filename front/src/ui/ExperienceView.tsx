@@ -161,18 +161,18 @@ const ExperienceView: React.FC<IProduct> = ({ name, id, place, image, descriptio
             </div>
 
             <button
+              onClick={() => router.push("/cart")}
+              className="w-full mt-3 border border-gray-300 py-2 rounded-lg mb-2"
+            >
+              Agregar al carrito
+            </button>
+
+            <button
               onClick={handleReserve}
               disabled={isLoading}
               className="w-full bg-yellow-400 text-black font-bold py-2 rounded-lg hover:bg-yellow-500 transition disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {isLoading ? "Redirigiendo..." : "Reservar con Mercado Pago"}
-            </button>
-
-            <button
-              onClick={() => router.push("/cart")}
-              className="w-full mt-3 border border-gray-300 py-2 rounded-lg"
-            >
-              Ver carrito
             </button>
           </div>
 

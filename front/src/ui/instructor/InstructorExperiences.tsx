@@ -147,7 +147,7 @@ export default function InstructorExperiences() {
   if (error) {
     return (
       <DashboardLayout sidebar={<InstructorSidebar />}>
-        <section className="w-full bg-[#f5f2eb] px-6 py-10">
+        <section className="w-full bg-[#f5f2eb] px-6 py-10 min-h-screen">
           <div className="mx-auto max-w-6xl rounded-2xl bg-white p-6 shadow">
             <h1 className="mb-6 text-2xl font-bold text-[#1a3d2b]">
               Mis experiencias

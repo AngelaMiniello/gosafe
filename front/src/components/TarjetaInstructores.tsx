@@ -8,9 +8,9 @@ const Card = ({ id, name, place, image, sport, modality }: IService) => {
     return (
         <Link
             href={`/instructors/${id}`}
-            className="group overflow-hidden rounded-2xl border border-[#dfd6c9] bg-white shadow-[0_10px_26px_rgba(26,61,43,0.10)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(26,61,43,0.18)]"
+            className="group overflow-hidden rounded-2xl border border-[#dfd6c9] bg-white shadow-[0_10px_26px_rgba(26,61,43,0.10)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(26,61,43,0.18)] w-full max-w-[320px]"
         >
-            <div className="relative h-52 overflow-hidden bg-[#dce7dc]">
+            <div className="relative h-40 sm:h-44 md:h-52 overflow-hidden bg-[#dce7dc]">
                 <img
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                     src={imageSrc}
@@ -21,7 +21,7 @@ const Card = ({ id, name, place, image, sport, modality }: IService) => {
                 </div>
             </div>
 
-            <div className="space-y-3 p-5">
+            <div className="space-y-3 sm:space-y-4 p-4 sm:p-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6b7c71]">
                     {sport || "Aventura guiada"}
                 </p>

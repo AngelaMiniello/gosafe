@@ -27,7 +27,7 @@ export default function Newsletter() {
         
         {/* --- CONTENIDO --- */}
         <div className="relative z-10 flex flex-col items-center text-center">
-          <h2 className="text-2xl md:text-3xl font-medium text-gray-600 max-w-2xl leading-relaxed mb-10">
+          <h2 className="text-xl md:text-3xl font-medium text-gray-600 max-w-2xl leading-relaxed mb-8 md:mb10">
             Suscríbete para recibir información, últimas noticias y otras 
             ofertas interesantes de GoSafe
           </h2>
@@ -46,7 +46,7 @@ export default function Newsletter() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email"
+                placeholder="Tu email"
                 className="w-full bg-white py-4 pl-12 pr-4 rounded-xl text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#D6755B] transition-all"
                 disabled={status === 'loading'}
               />

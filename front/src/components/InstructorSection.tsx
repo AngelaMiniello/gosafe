@@ -29,30 +29,42 @@ const featuredInstructors = [
 
 export default function InstructorSection() {
   return (
-    <section className="py-12 bg-white text-center relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-16 h-16 bg-[#D6755B] rounded-br-3xl -translate-x-4 -translate-y-4" />
-    <div className="absolute top-0 right-0 w-16 h-16 bg-[#D6755B] rounded-bl-3xl translate-x-4 -translate-y-4" />
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#6c7a71]">
-              Instructores destacados
-            </p>
-            <h2 className="mt-2 text-3xl font-extrabold text-[#183224] md:text-4xl">
-              Encuentra a tu proxima guia de aventura
-            </h2>
-          </div>
-          <p className="max-w-xl text-sm leading-6 text-[#5d5d5d]">
-            Explora perfiles verificados y elige instructores con modalidad presencial o mixta para vivir experiencias mas seguras y mejor guiadas.
+  <section className="py-8 sm:py-10 md:py-12 bg-white text-center relative overflow-hidden px-4 sm:px-6">
+    
+    {/* Decoraciones */}
+    <div className="absolute top-0 left-0 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-[#D6755B] rounded-br-2xl md:rounded-br-3xl -translate-x-2 -translate-y-2 sm:-translate-x-3 sm:-translate-y-3 md:-translate-x-4 md:-translate-y-4" />
+    <div className="absolute top-0 right-0 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-[#D6755B] rounded-bl-2xl md:rounded-bl-3xl translate-x-2 -translate-y-2 sm:translate-x-3 sm:-translate-y-3 md:translate-x-4 md:-translate-y-4" />
+
+    <div className="mx-auto max-w-6xl">
+      
+      {/* HEADER */}
+      <div className="mb-6 md:mb-10 flex flex-col gap-3 md:flex-row md:items-center md:justify-between text-left md:text-left">
+        
+        <div className="p-2 mt-2">
+          <p className="text-gray-400 font-medium uppercase tracking-widest text-sm mb-4">
+            Instructores destacados
           </p>
+
+          <h2 className="text-2xl md:text-5xl font-bold text-gray-800 leading-tight">
+            Conecta con los <br/>
+            mejores instructores 
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {featuredInstructors.map((instructor) => (
-            <Card key={instructor.id} {...instructor} />
-          ))}
-        </div>
+        <p className="text-gray-500 text-sm md:text-lg leading-5 sm:leading-6 max-w-full md:max-w-md p-2 tracking-wide text-left md:text-right">
+          Explora perfiles verificados y elige instructores con modalidad presencial o mixta para vivir experiencias más seguras y mejor guiadas.
+        </p>
+
       </div>
-    </section>
-  );
+
+      {/* GRID */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mt-6  justify-items-center">
+        {featuredInstructors.map((instructor) => (
+          <Card key={instructor.id} {...instructor} />
+        ))}
+      </div>
+
+    </div>
+  </section>
+);
 }

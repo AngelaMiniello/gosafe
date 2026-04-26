@@ -69,41 +69,47 @@ export default function InstructorProfile() {
 
   return (
     <DashboardLayout sidebar={<InstructorSidebar />}>
-      <div className="w-full flex-1 px-10 py-10">
+      <div className="w-full flex-1 px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-10 lg:py-10">
         {loading ? (
           <p className="p-6">Cargando perfil...</p>
         ) : !instructor ? (
           <p className="p-6">No hay datos del instructor</p>
         ) : (
-          <div className="max-w-7xl mx-auto px-6 md:px-10 py-10">
-            <div className="grid grid-cols-1 xl:grid-cols-3 gap-8 items-start">
-              <div className="xl:col-span-2 space-y-6">
-                
+          <div className="max-w-8xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 items-start">
+              <div className="md:col-span-2 space-y-6">
                 {/* PERFIL */}
-                <div className="bg-white rounded-[28px] border border-[#ece7df] shadow-sm p-6 md:p-8">
-                  <div className="flex flex-col md:flex-row gap-6">
+                <div className="bg-white rounded-3xl border border-[#ece7df] shadow-sm p-4 sm:p-6 md:p-8 sm:w-md xl:w-3xl">
+                  <div className="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-4 sm:gap-4">
                     <Image
                       src={instructor.profilePic || "/default.jpg"}
                       alt="Instructor"
                       width={180}
                       height={180}
-                      className="h-45 w-45 rounded-3xl object-cover"
+                      className="h-32 w-32 sm:h-40 sm:w-40 md:h-45 md:w-45 rounded-3xl object-cover"
                     />
 
                     <div className="flex-1">
-                      <h1 className="text-3xl font-bold text-[#1a3d2b]">
+                      <h1 className="text-2xl sm:text-3xl font-bold text-[#1a3d2b]">
                         {instructor.firstName} {instructor.lastName}
                       </h1>
 
-                      <p className="text-gray-600 mt-2">
+                      <p className="text-gray-600 mt-2 text-sm sm:text-base">
                         {instructor.city}, {instructor.country}
                       </p>
                     </div>
                   </div>
                 </div>
 
+                {/* VALOR HORA MOBILE/TABLET */}
+                <div className="md:hidden rounded-[28px] p-4 sm:p-6 bg-[#e7b52c]">
+                  <h2 className="text-lg sm:text-xl font-bold">
+                    Valor hora: ${instructor.instructorProfile?.price ?? 0}
+                  </h2>
+                </div>
+
                 {/* SOBRE MI */}
-                <div className="bg-white rounded-[28px] p-6">
+                <div className="bg-white rounded-[28px] p-4 sm:p-6">
                   <h2 className="text-xl font-bold mb-3">Sobre mí</h2>
                   <p>
                     {instructor.instructorProfile?.about ||
@@ -112,7 +118,7 @@ export default function InstructorProfile() {
                 </div>
 
                 {/* ACTIVIDADES */}
-                <div className="bg-white rounded-[28px] p-6">
+                <div className="bg-white rounded-[28px] p-4 sm:p-6">
                   <h2 className="text-xl font-bold mb-3">Actividades</h2>
 
                   {instructor.instructorProfile?.activities?.length ? (
@@ -130,7 +136,7 @@ export default function InstructorProfile() {
                 </div>
 
                 {/* RESEÑAS */}
-                <div className="bg-white rounded-[28px] p-6">
+                <div className="bg-white rounded-[28px] p-4 sm:p-6">
                   <h2 className="text-xl font-bold mb-3">Reseñas</h2>
 
                   {instructor.reviews?.length ? (
@@ -146,8 +152,8 @@ export default function InstructorProfile() {
               </div>
 
               {/* SIDEBAR DERECHO */}
-              <div>
-                <div className="rounded-[28px] p-6 bg-[#e7b52c]">
+              <div className="hidden md:block">
+                <div className="rounded-[28px] p-6 bg-[#e7b52c] max-w-3xs">
                   <h2 className="text-xl font-bold">
                     Valor hora: ${instructor.instructorProfile?.price ?? 0}
                   </h2>
