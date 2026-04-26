@@ -3,7 +3,7 @@ import { getProductsDB } from "@/service/productService";
 
 export default async function ProductsPage() {
   try {
-    const products = await getProductsDB();
+    const products = await getProductsDB().catch(() => []);
 
     return (
       <section className="min-h-screen w-full bg-[#f5f2eb] px-6 py-10 md:px-10">
