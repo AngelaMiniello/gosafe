@@ -3,8 +3,8 @@
 import { useAuth } from "@/context/AuthContext";
 import Image from "next/image";
 import Link from "next/link";
-import { UserRound, ShoppingCart, LogOutIcon, MessageCircle,Text, LogInIcon,UserPen, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { UserRound, LogOutIcon, Text, LogInIcon, UserPen } from "lucide-react";
+
 import { jwtDecode } from "jwt-decode";
 
 interface DecodedToken {
@@ -25,7 +25,9 @@ export default function Navbar() {
     }
   }
 
-  const showCart = userRole !== "instructor" && userRole !== "admin";
+  const avatarSrc = userData?.user?.profilePic?.trim();
+  const displayName = userData?.user?.name?.trim() || "Usuario";
+  const avatarInitial = displayName.charAt(0).toUpperCase();
 
   //menú desplegable
   const [menuOpen, setMenuOpen] = useState(false);
@@ -70,23 +72,30 @@ export default function Navbar() {
           {/* Acciones */}
           <div className="hidden md:flex items-center gap-1 md:gap-2 lg:gap-4 shrink-0">
             <Link
-              href="/blogs"
-              className={navBtn}
+              href="/dashboard"
+              className="group"
+              title="Ir al dashboard"
+              aria-label="Ir al dashboard"
+            >
+              {avatarSrc ? (
+                <img
+                  src={avatarSrc}
+                  alt={`Foto de perfil de ${displayName}`}
+                  className="h-11 w-11 rounded-full border-2 border-[#1a3d2b] object-cover transition group-hover:scale-105"
+                />
+              ) : (
+                <div className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#1a3d2b] bg-[#dce6de] text-sm font-bold text-[#1a3d2b] transition group-hover:scale-105">
+                  {avatarInitial}
+                </div>
+              )}
+            </Link>
+            <Link
+            href="/blogs"
+            className="px-4 py-2 border border-black rounded hover:bg-[#b8b1a6] w-37.5 flex items-center justify-center gap-2 text-center"
             >
             <Text size={18} />
             <span>Blog</span>
             </Link>
-
-            {showCart && (
-              <Link
-                href="/cart"
-                className={navBtn}
-              >
-                <ShoppingCart size={18} />
-                <span>Carrito</span>
-              </Link>
-            )}
-
             <Link
               href="/dashboard"
               className="flex items-center justify-center gap-1 lg:gap-2 py-2 border border-black rounded hover:bg-[#b8b1a6] px-2 lg:px-3 xl:px-4 text-center text-xs lg:text-sm xl:text-base min-w-[90px] lg:min-w-[105px] xl:min-w-[150px]"
