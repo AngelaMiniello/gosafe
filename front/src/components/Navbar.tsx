@@ -4,7 +4,7 @@ import { useAuth } from "@/context/AuthContext";
 import Image from "next/image";
 import Link from "next/link";
 import { UserRound, LogOutIcon, Text, LogInIcon, UserPen } from "lucide-react";
-
+import { useState } from "react";
 import { jwtDecode } from "jwt-decode";
 
 interface DecodedToken {
