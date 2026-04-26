@@ -3,7 +3,14 @@ import { getProductsDB } from "@/service/productService";
 
 export default async function ProductsPage() {
   try {
-    const products = await getProductsDB().catch(() => []);
+    const timeout = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error("Timeout")), 5000)
+    );
+
+    const products = (await Promise.race([
+      getProductsDB(),
+      timeout
+    ]).catch(() => [])) as any[];
 
     return (
       <section className="min-h-screen w-full bg-[#f5f2eb] px-6 py-10 md:px-10">
