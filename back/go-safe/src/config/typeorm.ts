@@ -3,7 +3,7 @@ import { registerAs } from '@nestjs/config';
 import { DataSource } from 'typeorm';
 import { DataSourceOptions } from 'typeorm/browser';
 
-dotenvConfig({ path: '.development.env' });
+dotenvConfig();
 const isProduction = process.env.ENV === 'production';
 
 export const config = {
