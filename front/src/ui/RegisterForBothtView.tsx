@@ -10,12 +10,12 @@ function RegisterForBothtView() {
   const token = searchParams.get("token")
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#e6dfd5] px-4">
+    <div className="h-full flex flex-col items-center justify-center bg-gray-50 px-4">
 
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Regístrate</h1>
+        <h1 className="text-4xl font-bold mb-4">Register</h1>
         <p className="text-lg text-gray-700">
-          Selecciona la opción correcta de registro que se adecúe a tu perfil
+          Choose the register option that fits with your profile
         </p>
       </div>
 
@@ -26,13 +26,13 @@ function RegisterForBothtView() {
           <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition cursor-pointer border-2 border-transparent hover:border-[#1b5e20]">
             <div className="text-center">
               <h2 className="text-2xl font-bold mb-4 text-[#1b5e20]">
-                Soy Usuario
+                I'm a user
               </h2>
               <p className="text-gray-600 mb-6">
-                Regístrate como usuario para explorar aventuras y experiencias
+                Register as a user to explore adventures and experiences
               </p>
               <button className="px-6 py-2 bg-[#1b5e20] text-white rounded-lg hover:bg-[#155019]">
-                Registrarse como Usuario
+                Register as a User
               </button>
             </div>
           </div>
@@ -43,13 +43,13 @@ function RegisterForBothtView() {
           <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition cursor-pointer border-2 border-transparent hover:border-[#1b5e20]">
             <div className="text-center">
               <h2 className="text-2xl font-bold mb-4 text-[#1b5e20]">
-                Soy Instructor
+                I'm an Instructor
               </h2>
               <p className="text-gray-600 mb-6">
-                Regístrate como instructor para crear y compartir tus aventuras
+                Register as an instructor to create and share your work and adventures.
               </p>
               <button className="px-6 py-2 bg-[#1b5e20] text-white rounded-lg hover:bg-[#155019]">
-                Registrarse como Instructor
+                Register as an Instructor
               </button>
             </div>
           </div>
@@ -59,7 +59,7 @@ function RegisterForBothtView() {
 
       <div className="mt-12">
         <Link href="/" className="text-[#1b5e20] font-semibold hover:underline">
-          ← Volver al inicio
+          ← Home
         </Link>
       </div>
 
