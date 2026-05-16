@@ -10,12 +10,12 @@ function RegisterForBothtView() {
   const token = searchParams.get("token")
 
   return (
-    <div className="h-full flex flex-col items-center justify-center bg-gray-50 px-4">
+    <div className="min-h-full flex flex-col items-center justify-center bg-white px-4 mt-20">
 
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-4">Register</h1>
         <p className="text-lg text-gray-700">
-          Choose the register option that fits with your profile
+          Choose the register option that fits with your profile.
         </p>
       </div>
 
@@ -46,7 +46,7 @@ function RegisterForBothtView() {
                 I'm an Instructor
               </h2>
               <p className="text-gray-600 mb-6">
-                Register as an instructor to create and share your work and adventures.
+                Register as an instructor to share your work.
               </p>
               <button className="px-6 py-2 bg-[#1b5e20] text-white rounded-lg hover:bg-[#155019]">
                 Register as an Instructor
