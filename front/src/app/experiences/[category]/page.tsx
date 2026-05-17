@@ -23,18 +23,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   return (
     <div className="max-w-7xl mx-auto p-8 min-h-screen bg-gray-50/50">
       <header className="mb-10">
-        <h1 className="text-4xl font-extrabold text-gray-900 capitalize">
+        <h1 className="text-3xl font-extrabold text-gray-900 capitalize">
           {categorySlug} Adventures
         </h1>
-        <p className="text-gray-500 mt-2 font-medium">
+        <p className="text-gray-500 mt-2 font-small">
           {filteredExperiences.length} experiencias encontradas para esta categoria.
         </p>
-        <Link
-          href="/experiences"
-          className="mt-5 inline-block rounded-lg bg-[#EAB308] px-5 py-2 font-semibold text-black transition hover:bg-[#CA8A04]"
-        >
-          Ver todas las experiencias
-        </Link>
       </header>
 
       {filteredExperiences.length > 0 ? (
@@ -50,6 +44,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           <p className="text-gray-500">Todavia no tenemos actividades en {categorySlug}.</p>
         </div>
       )}
+      <Link
+          href="/experiences"
+          className="mt-5 inline-block rounded-lg bg-[#EAB308] px-5 py-2 font-semibold text-black transition hover:bg-[#CA8A04]"
+        >
+          Ver todas las experiencias
+        </Link>
     </div>
   );
 }

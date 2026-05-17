@@ -37,7 +37,7 @@ export default function RootLayout({
 
           <ToastContainer />
 
-          <div className="flex min-h-screen flex-col">
+          <div className="flex min-h-screen flex-col bg-amber-50">
             <Navbar />
             <main className="w-full flex-1">{children}</main>
             <Footer />
