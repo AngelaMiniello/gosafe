@@ -94,7 +94,20 @@ export default function RegisterInstructorView() {
       await sendEmail(values.firstName, values.email);
       // Si el backend devuelve un token o un objeto exitoso
       alert("¡Registro exitoso! Por favor, inicia sesión.");
-      router.push("/login");
+
+      console.log("¡Mirá lo que devuelve el Back!", res);
+      
+      // 1. Guardás los datos que te devolvió el back en tu contexto global
+      if (res && res.token) {
+        setUserData({
+          token: res.token,
+          user: res.user
+        });
+    
+      //si guardás en localStorage directo:
+      localStorage.setItem("userSession", JSON.stringify(res));
+
+      }
     } catch (error: any) {
       console.error("Error capturado:", error);
       alert("Error en el registro: " + (error.message || "Verifica los datos"));
