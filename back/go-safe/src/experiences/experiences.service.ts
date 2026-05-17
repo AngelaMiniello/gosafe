@@ -117,17 +117,17 @@ export class ExperiencesService {
     const experiences = await this.experiencesRepository.find({
 
       where: [
-      // Opción 1: Por si el ID enviado es el de la tabla Instructor
+      // Escenario 1: El ID es el de la tabla Instructor
       { instructor: { id: instructorId } },
       
-      // Opción 2: Por si el ID enviado es el del Usuario asociado al Instructor (Tu caso actual)
-      { instructor: { user: { id: instructorId } } }
+      // Escenario 2: El ID es el del Usuario dentro de la tabla Instructor
+      { instructor: { user: { id: instructorId } } },
+      
+      // Escenario 3: Por si quedó guardado el ID de usuario directamente como texto suelto en la columna (un clásico de TypeORM)
+      { instructorId: instructorId } as any 
     ],
-    
     relations: {
-      instructor: {
-        user: true // Trae los datos del usuario si los necesitas en el front
-      }
+      instructor: true
     }
 
     });
