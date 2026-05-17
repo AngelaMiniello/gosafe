@@ -1,7 +1,9 @@
 import {
   IsNotEmpty,
   IsNumber,
+  IsOptional,
   IsString,
+  IsUrl,
   Max,
   MaxLength,
   Min,
@@ -96,14 +98,6 @@ export class CreateExperienceDto {
   ageRange!: string;
 
   /**
-   * picture URL
-   * @example https://example.com/avatar.jpg
-   */
-  @IsNotEmpty()
-  @IsString()
-  imageUrl!: string;
-
-  /**
    * Difficulty level
    * @example Medium
    */
@@ -138,4 +132,13 @@ export class CreateExperienceDto {
   @IsString()
   @MaxLength(50)
   instructorId!: string;
+
+  /**
+   * Image URL associated with the experience
+   * @example https://res.cloudinary.com/demo/image/upload/sample.jpg
+   */
+  @IsOptional()
+  @IsString()
+  @IsUrl()
+  imageUrl!: string;
 }
