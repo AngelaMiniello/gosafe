@@ -14,7 +14,7 @@ export default async function ExperiencesPage() {
   {
     id: "demo-1",
     title: "Climbing en Suesca",
-    image: "/Decore2.png",
+    image: "/climbingsuesca.png",
     difficulty: "Intermedio",
     price: 80,
     location: "Suesca, Colombia",
@@ -23,7 +23,7 @@ export default async function ExperiencesPage() {
   {
     id: "demo-2",
     title: "Escalada en El Peñol",
-    image: "/Decore2.png",
+    image: "/escalada.png",
     difficulty: "Avanzado",
     price: 120,
     location: "Guatape, Colombia",
@@ -32,7 +32,7 @@ export default async function ExperiencesPage() {
   {
     id: "demo-3",
     title: "Climbing en La Mojarra",
-    image: "/Decore2.png",
+    image: "/kayakadventure.jpg",
     difficulty: "Principiante",
     price: 60,
     location: "Santander, Colombia",
