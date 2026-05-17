@@ -114,26 +114,22 @@ export class ExperiencesService {
   }
 
   async getExperiencesByInstructor(instructorId: string) {
-    const experiences = await this.experiencesRepository.find({
-
-      where: [
-      // Escenario 1: El ID es el de la tabla Instructor
-      { instructor: { id: instructorId } },
-      
-      // Escenario 2: El ID es el del Usuario dentro de la tabla Instructor
-      { instructor: { user: { id: instructorId } } },
-      
-      // Escenario 3: Por si quedó guardado el ID de usuario directamente como texto suelto en la columna (un clásico de TypeORM)
-      { instructorId: instructorId } as any 
-    ],
-    relations: {
-      instructor: true
-    }
-
-    });
+  try {
+    const experiences = await this.experiencesRepository
+      .createQueryBuilder('experience')
+      .leftJoinAndSelect('experience.instructor', 'instructor') // Une la experiencia con el instructor
+      .leftJoinAndSelect('instructor.user', 'user')             // Une el instructor con su usuario de base
+      .where('instructor.id = :instructorId', { instructorId }) // Condición 1: El ID es de la tabla Instructor
+      .orWhere('user.id = :instructorId', { instructorId })     // Condición 2: El ID es el de Usuario (Tu caso)
+      .getMany();
 
     return experiences;
+  } catch (error) {
+    throw new InternalServerErrorException(
+      `Error al obtener experiencias por QueryBuilder: ${error.message}`,
+    );
   }
+}
 
   async getExperiencesByUser(userId: string) {
     return await this.experiencesRepository
