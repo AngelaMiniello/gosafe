@@ -73,7 +73,7 @@ export default function InstructorExperiences() {
         const instructorId = decoded.id;
 
         const response = await fetch(
-          `${API_URL}/instructors/${instructorId}/experiences`,
+          `${API_URL}/experiences/instructorExperiences/${instructorId}`,
           {
             method: "GET",
             headers: {
