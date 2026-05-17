@@ -115,11 +115,21 @@ export class ExperiencesService {
 
   async getExperiencesByInstructor(instructorId: string) {
     const experiences = await this.experiencesRepository.find({
-      where: {
-        instructor: {
-          id: instructorId,
-        },
-      },
+
+      where: [
+      // Opción 1: Por si el ID enviado es el de la tabla Instructor
+      { instructor: { id: instructorId } },
+      
+      // Opción 2: Por si el ID enviado es el del Usuario asociado al Instructor (Tu caso actual)
+      { instructor: { user: { id: instructorId } } }
+    ],
+    
+    relations: {
+      instructor: {
+        user: true // Trae los datos del usuario si los necesitas en el front
+      }
+    }
+
     });
 
     return experiences;
