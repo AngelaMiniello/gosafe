@@ -31,11 +31,11 @@ export default async function ExperiencesPage() {
   },
   {
     id: "demo-3",
-    title: "Climbing en La Mojarra",
+    title: "Kayak en Trenque Lauquen",
     image: "/kayakadventure.jpg",
     difficulty: "Principiante",
     price: 60,
-    location: "Santander, Colombia",
+    location: "Trenque Lauquen, Argentina",
     category: "Climbing",
   },
 ];
