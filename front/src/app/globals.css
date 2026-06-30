@@ -1,13 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
 
 @import "tailwindcss";
 
-@layer components {
-  .inputStyles {
-    @apply w-full bg-[#f8f8f8] border border-gray-300 rounded-full py-3 px-6 text-gray-600 italic transition-all mb-1;
-    @apply focus:outline-none focus:ring-2 focus:ring-[#f0ba3c] focus:border-transparent;
-  }
+/* Configuración nativa para Tailwind v4 */
+@theme {
+  --font-nunito: 'Nunito', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-manjari: 'Manjari', sans-serif;
+}
+
+/* Corrección de sintaxis para Tailwind v4 */
+@utility inputStyles {
+  @apply w-full bg-[#f8f8f8] border border-gray-300 rounded-full py-3 px-6 text-gray-600 italic transition-all mb-1;
+  @apply focus:outline-none focus:ring-2 focus:ring-[#f0ba3c] focus:border-transparent;
 }
 
 /* ===== BOTÓN FLOTANTE ===== */
@@ -27,7 +34,6 @@
   cursor: pointer;
   z-index: 999999;
   box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-
   animation: pulse 2s infinite;
 }
 
@@ -191,7 +197,7 @@
   overflow-y: auto;
 }
 
-/* INPUT ABAJO (IMPORTANTE) */
+/* INPUT ABAJO */
 .admin-chat-input {
   display: flex;
   border-top: 1px solid #ddd;
@@ -223,10 +229,3 @@
   max-width: 70%;
 }
 
-.msg-user {
-  background: #e0e0e0;
-  padding: 8px 12px;
-  border-radius: 10px;
-  margin-bottom: 8px;
-  max-width: 70%;
-}
