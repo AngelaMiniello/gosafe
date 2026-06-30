@@ -10,45 +10,9 @@ import { register } from "@/service/authService";
 import { Eye, EyeOff } from "lucide-react";
 import { sendEmail } from "@/lib/sendEmail";
 
-// ── Design tokens ─────────────────────────────────────────────────────────────
-const GREEN       = "#1a3d2b";
-const CREAM       = "#f5f2eb";
-const YELLOW      = "#f5c518";
-const LIGHT_GREEN = "#c8d8c8";
-
-// ── Shared input styles ───────────────────────────────────────────────────────
-const inputBase: React.CSSProperties = {
-  width: "100%",
-  padding: "13px 16px",
-  borderRadius: "10px",
-  border: "1.5px solid #d6d0c8",
-  backgroundColor: "white",
-  fontSize: "14px",
-  color: "#333",
-  outline: "none",
-  boxSizing: "border-box",
-  fontFamily: "'Nunito', sans-serif",
-  transition: "border-color 0.2s",
-};
-
-const inputGreenBase: React.CSSProperties = {
-  ...inputBase,
-  backgroundColor: LIGHT_GREEN,
-  border: "1.5px solid transparent",
-  color: "#1a1a1a",
-};
-
-const errorStyle: React.CSSProperties = {
-  color: "#c0392b",
-  fontSize: "11px",
-  marginTop: "3px",
-  display: "block",
-  fontFamily: "'Nunito', sans-serif",
-};
-
 // ── Field wrapper ─────────────────────────────────────────────────────────────
 const FieldWrap: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
+  <div className="flex flex-col gap-1">
     {children}
   </div>
 );
@@ -86,86 +50,22 @@ function RegisterView() {
   };
 
   return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
-        *, *::before, *::after { box-sizing: border-box; }
-
-        .reg-input:focus  { border-color: ${GREEN} !important; }
-        .reg-input-g:focus { border-color: ${GREEN} !important; box-shadow: 0 0 0 2px rgba(26,61,43,0.15); }
-
-        .btn-google { transition: background 0.2s, box-shadow 0.2s; }
-        .btn-google:hover { background: #f0ede6 !important; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-
-        .btn-submit { transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
-        .btn-submit:hover:not(:disabled) {
-          background: #e0b010 !important;
-          transform: translateY(-1px);
-          box-shadow: 0 6px 20px rgba(245,197,24,0.4);
-        }
-        .btn-submit:disabled { opacity: 0.55; cursor: not-allowed; }
-      `}</style>
-
-      <div style={{
-        minHeight: "100vh",
-        backgroundColor: CREAM,
-        fontFamily: "'Nunito', sans-serif",
-        position: "relative",
-        overflow: "hidden",
-      }}>
-        
-        
-
-  
+      <div className="min-h-screen bg-[#f5f2eb] relative overflow-hidden font-nunito">
 
         {/* ── Main ── */}
-        <main style={{
-          padding: "6px 40px 60px",
-          position: "relative",
-          zIndex: 10,
-          width: "100%",
-          maxWidth: "820px",
-          margin: "0 auto",
-        }}>
+        <main className="relative z-10 w-full max-w-205 mx-auto py-16 px-10 flex flex-col justify-center">
 
           {/* Title */}
-          <div style={{ marginBottom: "20px" }}>
-            <h1 style={{
-              fontSize: "30px",
-              fontWeight: "900",
-              color: "#1a1a1a",
-              marginBottom: "6px",
-              letterSpacing: "-0.5px",
-              margin: "0 0 6px",
-            }}>
-              ¡Únete a nuestra comunidad!
-            </h1>
-            <p style={{ color: "#666", fontSize: "14px", fontWeight: "600", margin: 0 }}>
-              Regístrate para empezar a conectar con los mejores instructores
-            </p>
+          <div className="mb-6 text-center">
+            <h1 className="text-3xl font-black text-[#1a1a1a] mb-1.5 tracking-tight m-0 font-nunito"> ¡Únete a nuestra comunidad! </h1>
+            <p className="text-[#666] text-sm font-semibold m-0"> Regístrate para empezar a conectar con los mejores instructores</p>
           </div>
 
           {/* Google button */}
-          <div style={{ marginBottom: "18px" }}>
+          <div className="mb-6 flex justify-center">
             <button
               type="button"
-              className="btn-google"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                backgroundColor: "white",
-                border: "1.5px solid #d0ccc4",
-                borderRadius: "50px",
-                padding: "11px 32px",
-                fontSize: "14px",
-                fontWeight: "700",
-                cursor: "pointer",
-                color: "#333",
-                width: "340px",
-                justifyContent: "center",
-                fontFamily: "'Nunito', sans-serif",
-              }}
+              className="transition-all duration-200 hover:bg-[#f0ede6] !important hover:shadow-md focus:border-[#1a3d2b] focus:ring-2 focus:ring-[#1a3d2b]/15 font-nunito flex items-center justify-center gap-2.5 bg-white border-[1.5px] border-[#d0ccc4] rounded-full py-2.75 px-8 text-sm font-bold cursor-pointer text-[#333] w-85"
             >
               <svg width="18" height="18" viewBox="0 0 24 24">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -178,16 +78,10 @@ function RegisterView() {
           </div>
 
           {/* Divider */}
-          <div style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-            maxWidth: "600px",
-            marginBottom: "20px",
-          }}>
-            <div style={{ flex: 1, height: "1px", backgroundColor: "#ccc" }} />
-            <span style={{ color: "#888", fontSize: "13px", fontWeight: "600" }}>O</span>
-            <div style={{ flex: 1, height: "1px", backgroundColor: "#ccc" }} />
+          <div className="flex items-center gap-3 max-w-150 mb-5 mx-auto w-full">
+            <div className="flex-1 h-[1px] bg-[#ccc]" />
+            <span className="text-[#888] text-[13px] font-semibold font-nunito">O</span>
+            <div className="flex-1 h-[1px] bg-[#ccc]" />
           </div>
 
           {/* ── Formik ── */}
@@ -225,231 +119,191 @@ function RegisterView() {
             }}
           >
             {({ errors, isSubmitting, values }) => (
-              <Form style={{ width: "100%", maxWidth: "640px" }}>
+              <Form className="w-full max-w-160 mx-auto">
 
-                {/* ── Grid 2 columnas (campos blancos izq / verdes der) ── */}
-                <div style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "12px",
-                  marginBottom: "12px",
-                }}>
+                {/* ── Grid 2 columnas ── */}
+                <div className="grid grid-cols-2 gap-3 mb-3 w-full max-w-150 mx-auto">
 
-                  {/* Primer nombre — blanco */}
+                  {/* First name */}
                   <FieldWrap>
                     <Field name="primernombre" type="text" placeholder="Primer Nombre"
-                      className="reg-input" style={inputBase} />
-                    <ErrorMessage name="primernombre">{msg => <span style={errorStyle}>{msg}</span>}</ErrorMessage>
+                      className="focus:border-[#1a3d2b] bg-white font-nunito w-full p-4 rounded-xl border border-[#d6d0c8] text-sm text-[#333] outline-none box-border transition-colors duration-200" />
+                    <ErrorMessage name="primernombre">{msg => <span className="block text-[#c0392b] text-xs mt-2 font-nunito">{msg}</span>}</ErrorMessage>
                   </FieldWrap>
 
-                  {/* Fecha nacimiento — verde */}
+                  {/* Birthdate */}
                   <FieldWrap>
                     <Field name="birthdate" type="date"
                       max={new Date().toISOString().split("T")[0]}
-                      className="reg-input-g"
-                      style={{ ...inputGreenBase, color: values.birthdate ? "#1a1a1a" : "#888" }}
+                      className={`focus:border-[#1a3d2b] bg-white p-4 font-nunito w-full rounded-xl border border-[#d6d0c8] text-sm text-[#333] outline-none box-border transition-colors duration-200 ${
+                      values.birthdate ? "text-[#1a1a1a]" : "text-[#888]"}`}
                     />
-                    <ErrorMessage name="birthdate">{msg => <span style={errorStyle}>{msg}</span>}</ErrorMessage>
+                    <ErrorMessage name="birthdate">{msg => <span className="block text-[#c0392b] text-xs mt-2 font-nunito">{msg}</span>}</ErrorMessage>
                   </FieldWrap>
 
-                  {/* Segundo nombre — blanco */}
+                  {/* Last name */}
                   <FieldWrap>
                     <Field name="segundonombre" type="text" placeholder="Segundo Nombre"
-                      className="reg-input" style={inputBase} />
-                    <ErrorMessage name="segundonombre">{msg => <span style={errorStyle}>{msg}</span>}</ErrorMessage>
+                      className="focus:border-[#1a3d2b] font-nunito w-full p-4 rounded-xl border border-[#d6d0c8] bg-white text-sm text-[#333] outline-none box-border transition-colors duration-200"/>
+                    <ErrorMessage name="segundonombre">{msg => <span className="block text-[#c0392b] text-xs mt-2 font-nunito">{msg}</span>}</ErrorMessage>
                   </FieldWrap>
 
-                  {/* Dirección — verde */}
+                  {/* Address */}
                   <FieldWrap>
                     <Field name="address" type="text" placeholder="Dirección"
-                      className="reg-input-g" style={inputGreenBase} />
-                    <ErrorMessage name="address">{msg => <span style={errorStyle}>{msg}</span>}</ErrorMessage>
+                      className="focus:border-[#1a3d2b] p-4 font-nunito w-full rounded-xl border border-[#d6d0c8] bg-white text-sm text-[#333] outline-none box-border transition-colors duration-200" />
+                    <ErrorMessage name="address">{msg => <span className="block text-[#c0392b] text-xs mt-2 font-nunito">{msg}</span>}</ErrorMessage>
                   </FieldWrap>
 
-                  {/* Correo — blanco */}
+                  {/* Mail */}
                   <FieldWrap>
                     <Field name="mail" type="email" placeholder="Correo electrónico"
-                      className="reg-input" style={inputBase} />
-                    <ErrorMessage name="mail">{msg => <span style={errorStyle}>{msg}</span>}</ErrorMessage>
+                      className="focus:border-[#1a3d2b] font-nunito w-full p-4 rounded-xl border border-[#d6d0c8] bg-white text-sm text-[#333] outline-none box-border transition-colors duration-200"/>
+                    <ErrorMessage name="mail">{msg => <span className="block text-[#c0392b] text-xs mt-2 font-nunito">{msg}</span>}</ErrorMessage>
                   </FieldWrap>
 
-                  {/* País — verde */}
+                  {/* country */}
                   <FieldWrap>
-                    <Field as="select" name="country" className="reg-input-g"
-                      style={{ ...inputGreenBase, color: values.country ? "#1a1a1a" : "#666" }}>
-                      <option value="">País</option>
+                    <Field as="select" name="country"  
+                      className={`focus:border-[#1a3d2b] bg-white p-4 font-nunito w-full rounded-xl border border-[#d6d0c8] text-sm text-[#333] outline-none box-border transition-colors duration-200 ${
+                      values.birthdate ? "text-[#1a1a1a]" : "text-[#888]"}`}>
+
+                      <option value="">Country</option>
+
                       {Object.keys(ciudadPorPais).map(p => (
                         <option key={p} value={p}>{p}</option>
                       ))}
                     </Field>
-                    <ErrorMessage name="country">{msg => <span style={errorStyle}>{msg}</span>}</ErrorMessage>
+                    <ErrorMessage name="country">{msg => <span className="block text-[#c0392b] text-xs mt-2 font-nunito">{msg}</span>}</ErrorMessage>
                   </FieldWrap>
 
-                  {/* Contraseña — blanco */}
+                  {/* password */}
                   <FieldWrap>
-                    <div style={{ position: "relative" }}>
+                    <div className="relative">
                       <Field
                         name="password"
                         type={showPassword ? "text" : "password"}
-                        placeholder="Contraseña"
-                        className="reg-input"
-                        style={{ ...inputBase, paddingRight: "44px" }}
+                        placeholder="Password"
+                        className="focus:border-[#1a3d2b] font-nunito w-full p-4 rounded-xl border border-[#d6d0c8] bg-white text-sm text-[#333] outline-none box-border transition-colors duration-200"
                       />
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
                         aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
-                        style={{
-                          position: "absolute",
-                          top: "50%",
-                          right: "12px",
-                          transform: "translateY(-50%)",
-                          border: "none",
-                          background: "transparent",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          color: "#6b7280",
-                          cursor: "pointer",
-                          padding: 0,
-                        }}
+                        className="absolute top-1/2 right-3 -translate-y-1/2 border-none bg-transparent flex items-center justify-center text-gray-500 cursor-pointer p-0"
                       >
                         {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                       </button>
                     </div>
-                    <ErrorMessage name="password">{msg => <span style={errorStyle}>{msg}</span>}</ErrorMessage>
+                    <ErrorMessage name="password">{msg => <span className="block text-[#c0392b] text-xs mt-2 font-nunito">{msg}</span>}</ErrorMessage>
                   </FieldWrap>
 
-                  {/* Ciudad — verde */}
+                  {/* City */}
                   <FieldWrap>
-                    <Field as="select" name="city" className="reg-input-g"
-                      style={{ ...inputGreenBase, color: values.city ? "#1a1a1a" : "#666" }}>
-                      <option value="">Ciudad</option>
+                    <Field as="select" name="city" 
+                      className={`focus:border-[#1a3d2b] bg-white p-4 font-nunito w-full rounded-xl border border-[#d6d0c8] text-sm text-[#333] outline-none box-border transition-colors duration-200 ${
+                      values.birthdate ? "text-[#1a1a1a]" : "text-[#888]"}`}>
+
+                      <option value="">City</option>
                       {(ciudadPorPais[values.country] || []).map(c => (
                         <option key={c} value={c}>{c}</option>
                       ))}
                     </Field>
-                    <ErrorMessage name="city">{msg => <span style={errorStyle}>{msg}</span>}</ErrorMessage>
+                    <ErrorMessage name="city" >{msg => <span className="block text-[#c0392b] text-xs mt-2 font-nunito">{msg}</span>}</ErrorMessage>
                   </FieldWrap>
 
-                  {/* Repetir contraseña — blanco */}
+                  {/* Confirm password */}
                   <FieldWrap>
                     <div style={{ position: "relative" }}>
                       <Field
                         name="confirmPassword"
                         type={showConfirmPassword ? "text" : "password"}
-                        placeholder="Repetir contraseña"
-                        className="reg-input"
-                        style={{ ...inputBase, paddingRight: "44px" }}
+                        placeholder="Repetir contraseña" 
+                        className="focus:border-[#1a3d2b] font-nunito w-full p-4 rounded-xl border border-[#d6d0c8] bg-white text-sm text-[#333] outline-none box-border transition-colors duration-200"
                       />
                       <button
                         type="button"
                         onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                         aria-label={showConfirmPassword ? "Ocultar confirmación" : "Mostrar confirmación"}
-                        style={{
-                          position: "absolute",
-                          top: "50%",
-                          right: "12px",
-                          transform: "translateY(-50%)",
-                          border: "none",
-                          background: "transparent",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          color: "#6b7280",
-                          cursor: "pointer",
-                          padding: 0,
-                        }}
+                        className="absolute top-1/2 right-3 -translate-y-1/2 border-none bg-transparent flex items-center justify-center text-gray-500 cursor-pointer p-0"
                       >
                         {showConfirmPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                       </button>
                     </div>
-                    <ErrorMessage name="confirmPassword">{msg => <span style={errorStyle}>{msg}</span>}</ErrorMessage>
+                    <ErrorMessage name="confirmPassword">{msg => <span className="block text-[#c0392b] text-xs mt-2 font-nunito">{msg}</span>}</ErrorMessage>
                   </FieldWrap>
 
-                  {/* Username — verde (esquina inferior derecha del grid visible) */}
+                  {/* Username */}
                   <FieldWrap>
                     <Field name="username" type="text" placeholder="Username"
-                      className="reg-input-g" style={inputGreenBase} />
-                    <ErrorMessage name="username">{msg => <span style={errorStyle}>{msg}</span>}</ErrorMessage>
+                      className="focus:border-[#1a3d2b] focus:ring-2 focus:ring-[#1a3d2b]/15 bg-white border border-[#d6d0c8] p-4 box-border outline-none text-sm text-[#333] font-nunito w-full rounded-xl transition-colors duration-200" />
+                    <ErrorMessage name="username">{msg => <span className="block text-[#c0392b] text-xs mt-2 font-nunito">{msg}</span>}</ErrorMessage>
                   </FieldWrap>
 
                 </div>
 
-                {/* ── Fila extra: Tipo doc | Documento | Teléfono | Género ── */}
-                <div style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr 1fr 1fr",
-                  gap: "12px",
-                  marginBottom: "28px",
-                }}>
+                {/* ── Extra file: Type doc | Doc | Tel | Gen ── */}
+                <div className="grid grid-cols-2 gap-3 mb-3 w-full max-w-150 mx-auto">
                   <FieldWrap>
-                    <Field as="select" name="documentType" className="reg-input"
-                      style={{ ...inputBase, color: values.documentType ? "#333" : "#888" }}>
+                    <Field as="select" name="documentType"
+                      className={`focus:border-[#1a3d2b] bg-white p-4 font-nunito w-full rounded-xl border border-[#d6d0c8] text-sm text-[#333] outline-none box-border transition-colors duration-200 ${
+                      values.birthdate ? "text-[#1a1a1a]" : "text-[#888]"}`}>
+                        
                       <option value="">Tipo doc.</option>
+                      <option value="CC">DNI</option>
                       <option value="CC">CC</option>
                       <option value="CE">CE</option>
                     </Field>
-                    <ErrorMessage name="documentType">{msg => <span style={errorStyle}>{msg}</span>}</ErrorMessage>
+                    <ErrorMessage name="documentType">{msg => <span className="block text-[#c0392b] text-xs mt-2 font-nunito">{msg}</span>}</ErrorMessage>
                   </FieldWrap>
 
                   <FieldWrap>
                     <Field name="document" type="text" placeholder="N° Documento"
-                      className="reg-input" style={inputBase} />
-                    <ErrorMessage name="document">{msg => <span style={errorStyle}>{msg}</span>}</ErrorMessage>
+                      className="focus:border-[#1a3d2b] font-nunito w-full p-4 rounded-xl border border-[#d6d0c8] bg-white outline-none box-border text-sm text-[#333] transition-colors duration-200"/>
+                    <ErrorMessage name="document" >{msg => <span className="block text-[#c0392b] text-xs mt-2 font-nunito">{msg}</span>}</ErrorMessage>
                   </FieldWrap>
 
                   <FieldWrap>
                     <Field name="phone" type="text" placeholder="Teléfono"
-                      className="reg-input" style={inputBase} />
-                    <ErrorMessage name="phone">{msg => <span style={errorStyle}>{msg}</span>}</ErrorMessage>
+                      className="focus:border-[#1a3d2b] font-nunito w-full p-4 rounded-xl border border-[#d6d0c8] bg-white outline-none box-border text-sm text-[#333] transition-colors duration-200"/>
+                    <ErrorMessage name="phone">{msg => <span className="block text-[#c0392b] text-xs mt-2 font-nunito">{msg}</span>}</ErrorMessage>
                   </FieldWrap>
 
                   <FieldWrap>
-                    <Field as="select" name="genre" className="reg-input"
-                      style={{ ...inputBase, color: values.genre ? "#333" : "#888" }}>
+                    <Field as="select" name="genre" 
+                    className={`focus:border-[#1a3d2b] bg-white p-4 font-nunito w-full rounded-xl border border-[#d6d0c8] text-sm text-[#333] outline-none box-border transition-colors duration-200 ${
+                      values.birthdate ? "text-[#1a1a1a]" : "text-[#888]"}`}>
+
                       <option value="">Género</option>
-                      <option value="Hombre">Hombre</option>
+
+                      <option value="Hombre">Hombre</option> 
                       <option value="Mujer">Mujer</option>
                       <option value="Otro">Otro</option>
                     </Field>
-                    <ErrorMessage name="genre">{msg => <span style={errorStyle}>{msg}</span>}</ErrorMessage>
+                    <ErrorMessage name="genre">{msg => <span className="block text-[#c0392b] text-xs mt-2 font-nunito">{msg}</span>}</ErrorMessage>
                   </FieldWrap>
                 </div>
 
                 {/* ── Submit + links ── */}
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "14px" }}>
+                <div className="flex flex-col items-center gap-3">
                   <button
                     type="submit"
                     disabled={isSubmitting || Object.keys(errors).length > 0}
-                    className="btn-submit"
-                    style={{
-                      backgroundColor: YELLOW,
-                      color: "#1a1a1a",
-                      border: "none",
-                      borderRadius: "50px",
-                      padding: "14px 0",
-                      width: "300px",
-                      fontSize: "16px",
-                      fontWeight: "800",
-                      cursor: "pointer",
-                      fontFamily: "'Nunito', sans-serif",
-                      letterSpacing: "0.2px",
-                    }}
+                    className="bg-[#f5c518] mt-2 font-nunito text-[#1a1a1a] text-base font-extrabold tracking-[0.2px] border-none rounded-full py-3.5 w-[340px] cursor-pointer text-center block mx-auto transition-all duration-200 hover:enabled:!bg-[#e0b010] hover:enabled:-translate-y-0.5 hover:enabled:shadow-[0_6px_20px_rgba(245,197,24,0.4)] disabled:opacity-55 disabled:cursor-not-allowed mb-2"
                   >
                     {isSubmitting ? "Registrando..." : "Regístrate"}
                   </button>
 
-                  <p style={{ fontSize: "13px", color: "#444", fontWeight: "600", margin: 0 }}>
+                  <p className="text-xs text-[#444] font-semibold m-0">
                     ¿Ya tienes una cuenta?{" "}
-                    <Link href="/login" style={{ color: YELLOW, fontWeight: "800", textDecoration: "none" }}>
+                    <Link href="/login" className="text-[#1a3d2b] font-bold text-sm no-underline ml-1">
                       Inicia sesión
                     </Link>
                   </p>
 
-                  <p style={{ fontSize: "12px", color: "#666", textAlign: "center", fontWeight: "600", margin: 0 }}>
+                  <p  className="text-xs text-[#444] font-semibold m-0 text-center">
                     Al registrarte, aceptas todos nuestros{" "}
-                    <Link href="/terms" style={{ color: YELLOW, fontWeight: "800", textDecoration: "none" }}>
+                    <Link href="/terms" className="text-[#1a3d2b] font-bold text-sm no-underline ml-1">
                       Términos de servicio y política de privacidad
                     </Link>
                   </p>
@@ -460,7 +314,6 @@ function RegisterView() {
           </Formik>
         </main>
       </div>
-    </>
   );
 }
 

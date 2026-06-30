@@ -27,10 +27,13 @@ const config: Config ={
               'brand-yellow': '#f0ba3c', // El amarillo dorado
               'brand-dark': '#1e3c31',   // El verde oscuro del fondo ondulado
               'brand-grey': '#e2e8f0',   // El gris de las tarjetas de los pasos
+              'customGreen': '#1a3d2b',
+              'customCream': '#f5f2eb',
             },
             fontFamily: {
-                poppins: ['Poppins', 'sans-serif'],
-                manjari: ['Manjari', 'sans-serif'],
+                poppins: ['var(--font-poppins)', 'sans-serif'],
+                manjari: ['var(--font-manjari)', 'sans-serif'],
+                nunito: ['var(--font-nunito)', 'sans-serif']
             },
         },
     },
